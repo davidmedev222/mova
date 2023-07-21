@@ -6,8 +6,8 @@ interface Props {
 
 function Button({ children }: Props) {
   return (
-    <Pressable>
-      <Text>{children}</Text>
+    <Pressable className='rounded-full bg-red-500 py-6'>
+      <Text className='text-center text-base'>{children}</Text>
     </Pressable>
   )
 }

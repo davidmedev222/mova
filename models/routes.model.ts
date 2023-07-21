@@ -1,4 +1,7 @@
 export enum Routes {
+  welcome = '/welcome',
+  login = '/login',
+  register = '/register',
   home = '/',
   explore = '/explore',
   mylist = '/my-list',
@@ -6,6 +9,9 @@ export enum Routes {
   profile = '/profile'
 }
 export enum StackRoutes {
+  welcome = 'welcome/index',
+  login = 'login/index',
+  register = 'register/index',
   home = 'index',
   explore = 'explore/index',
   mylist = 'my-list/index',
