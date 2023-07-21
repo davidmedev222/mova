@@ -1,2 +1,6 @@
+export { default as AuthActionMessage } from './auth/AuthActionMessage'
 export { default as Button } from './button/Button'
+export { default as DividerWithHeading } from './divider/DividerWithHeading'
+export { default as AuthWithSocialMedia } from './social-media/AuthWithSocialMedia'
 export { default as TabBar } from './tabs/TabBar'
+export { default as TabBarItem } from './tabs/TabBarItem'
