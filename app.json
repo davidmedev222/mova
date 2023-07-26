@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "mova",
+    "name": "Mova",
     "slug": "mova",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/mova.png",
     "userInterfaceStyle": "light",
     "scheme": "mova",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/mova.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,13 +18,19 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/mova.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.davidmedev.mova"
     },
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./assets/mova.png",
       "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ec81bd47-1931-4a1f-9e90-61db0de2e92c"
+      }
     }
   }
 }
