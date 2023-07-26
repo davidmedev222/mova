@@ -1,7 +1,7 @@
 import { MaterialIcons } from '@expo/vector-icons'
 import { Pressable } from 'react-native'
 
-function Searcher() {
+function SearchIcon() {
   return (
     <Pressable>
       <MaterialIcons name='search' size={28} color='#000000' />
@@ -9,4 +9,4 @@ function Searcher() {
   )
 }
 
-export default Searcher
+export default SearchIcon

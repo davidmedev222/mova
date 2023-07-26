@@ -1,7 +1,12 @@
-import { Text } from 'react-native'
+import { ScrollView } from 'react-native'
+import { MovieList } from '../../../components'
 
 function ExploreScreen() {
-  return <Text>Explore Screen</Text>
+  return (
+    <ScrollView className='px-2' contentContainerStyle={{ gap: 16, paddingVertical: 8 }}>
+      <MovieList />
+    </ScrollView>
+  )
 }
 
 export default ExploreScreen
