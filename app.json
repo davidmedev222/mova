@@ -4,7 +4,7 @@
     "slug": "mova",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/mova.png",
     "userInterfaceStyle": "light",
     "scheme": "mova",
     "splash": {
@@ -25,6 +25,11 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ec81bd47-1931-4a1f-9e90-61db0de2e92c"
+      }
     }
   }
 }
