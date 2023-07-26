@@ -21,7 +21,8 @@
         "foregroundImage": "./assets/mova.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.davidmedev.mova"
+      "package": "com.davidmedev.mova",
+      "softwareKeyboardLayoutMode": "pan"
     },
     "web": {
       "favicon": "./assets/mova.png",
