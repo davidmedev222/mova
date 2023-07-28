@@ -8,9 +8,9 @@ interface Props {
 function DividerWithHeading({ label }: Props) {
   const classes = {
     container: clsx('flex-row items-center justify-center', label !== undefined && 'space-x-4'),
-    dividerLeft: clsx('h-[1.25px] w-full bg-gray-300'),
+    dividerLeft: clsx('h-[1.25px] grow bg-gray-300'),
     label: clsx('text-base'),
-    dividerRight: clsx('h-[1.25px] w-full bg-gray-300')
+    dividerRight: clsx('h-[1.25px] grow bg-gray-300')
   }
 
   return (

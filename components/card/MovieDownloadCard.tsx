@@ -5,7 +5,12 @@ import Video from '../video/Video'
 
 const thumbnail = require('../../assets/images/avengers.jpg')
 
-function MovieDownloadCard() {
+interface Props {
+  onPressDelete?: () => void
+  hasDeleteIcon?: boolean
+}
+
+function MovieDownloadCard({ onPressDelete, hasDeleteIcon }: Props) {
   const classes = {
     card: clsx('flex-row'),
     details: clsx('grow justify-center'),
@@ -25,7 +30,9 @@ function MovieDownloadCard() {
         <Text className={classes.hours}>1h 42m 33s</Text>
         <View className={classes.options}>
           <Text className={classes.size}>1.4 GB</Text>
-          <MaterialIcons name='delete-outline' size={24} color='#ef4444' />
+          {hasDeleteIcon !== undefined && (
+            <MaterialIcons onPress={onPressDelete} name='delete-outline' size={24} color='#ef4444' />
+          )}
         </View>
       </View>
     </View>
