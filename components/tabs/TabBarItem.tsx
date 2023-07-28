@@ -14,11 +14,11 @@ interface Props {
 
 function TabBarItem({ to, icon, size, label }: Props) {
   const pathname = usePathname()
-  const isActiveIcon = pathname === to ? '#ef4444' : '#d1d5db'
+  const isActiveIcon = pathname === to ? '#ef4444' : '#9ca3af'
 
   const classes = {
     container: clsx('items-center justify-center'),
-    label: clsx('text-xs text-gray-300', pathname === to && 'text-red-500')
+    label: clsx('text-xs text-gray-400', pathname === to && 'text-red-500')
   }
 
   return (
