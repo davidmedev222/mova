@@ -1,4 +1,4 @@
-import { ScrollView } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
 import TagButton from './TagButton'
 
 interface Props {
