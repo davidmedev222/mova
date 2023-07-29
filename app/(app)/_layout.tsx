@@ -9,7 +9,7 @@ function AppLayout() {
     <BottomSheetModalProvider>
       <SafeAreaProvider>
         <Stack>
-          <Stack.Screen name={StackRoutes.home} options={{ title: 'Inicio' }} />
+          <Stack.Screen name={StackRoutes.home} options={{ header: () => null }} />
           <Stack.Screen name={StackRoutes.explore} />
           <Stack.Screen name={StackRoutes.mylist} options={{ title: 'My List', headerRight: () => <SearchIcon /> }} />
           <Stack.Screen

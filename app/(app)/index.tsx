@@ -1,14 +1,19 @@
 import { Link } from 'expo-router'
-import { Text, View } from 'react-native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { MovieListSection, MoviePresentationCard } from '../../components'
 
 function HomeScreen() {
   return (
-    <View>
-      <Text>Home Screen</Text>
+    <ScrollView contentContainerStyle={{ gap: 20 }}>
+      <MoviePresentationCard />
+      <MovieListSection title='Top 10 Movies This Week' />
+      <MovieListSection title='New Releases' />
+      <MovieListSection title='New Series' />
+      <MovieListSection title='New Movies' />
       <Link href='/login'>Login</Link>
       <Link href='/register'>Register</Link>
       <Link href='/welcome'>Welcome</Link>
-    </View>
+    </ScrollView>
   )
 }
 
