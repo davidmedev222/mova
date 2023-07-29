@@ -1,13 +1,14 @@
 import clsx from 'clsx'
-import { Image, ImageSourcePropType, Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
+import { TMovieImageURL } from '../../models'
 
 interface Props {
-  rating: string
-  image: ImageSourcePropType
+  rating: string | number
+  imageURL: TMovieImageURL
   width?: 'md'
 }
 
-function Movie({ image, rating, width }: Props) {
+function Movie({ imageURL, rating, width }: Props) {
   const classes = {
     container: clsx('w-[48.5%]', width === 'md' && 'w-40'),
     image: clsx('h-60 w-full rounded'),
@@ -16,7 +17,7 @@ function Movie({ image, rating, width }: Props) {
 
   return (
     <View className={classes.container}>
-      <Image className={classes.image} source={image} />
+      <Image className={classes.image} source={{ uri: imageURL }} />
       <Text className={classes.rating}>{rating}</Text>
     </View>
   )
