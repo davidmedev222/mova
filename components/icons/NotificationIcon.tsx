@@ -5,12 +5,12 @@ interface Props {
   color?: `#${string}`
 }
 
-function SearchIcon({ color = '#000000' }: Props) {
+function NotificationIcon({ color = '#000000' }: Props) {
   return (
     <Pressable>
-      <MaterialIcons name='search' size={28} color={color} />
+      <MaterialIcons name='notifications' size={28} color={color} />
     </Pressable>
   )
 }
 
-export default SearchIcon
+export default NotificationIcon

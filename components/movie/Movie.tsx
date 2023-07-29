@@ -4,11 +4,12 @@ import { Image, ImageSourcePropType, Text, View } from 'react-native'
 interface Props {
   rating: string
   image: ImageSourcePropType
+  width?: 'md'
 }
 
-function Movie({ image, rating }: Props) {
+function Movie({ image, rating, width }: Props) {
   const classes = {
-    container: clsx('w-[48.5%]'),
+    container: clsx('w-[48.5%]', width === 'md' && 'w-40'),
     image: clsx('h-60 w-full rounded'),
     rating: clsx('absolute top-2.5 left-2.5 rounded bg-red-500 py-1 px-2 text-xs text-white')
   }
