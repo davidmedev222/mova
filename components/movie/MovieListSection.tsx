@@ -1,14 +1,18 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import clsx from 'clsx'
 import { Link } from 'expo-router'
 import { Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
+import { movieImageURL } from '../../constants'
+import { IMovie } from '../../models'
 import Movie from './Movie'
 
 interface Props {
   title: string
+  movies: IMovie[]
 }
 
-function MovieListSection({ title }: Props) {
+function MovieListSection({ title, movies }: Props) {
   const classes = {
     section: clsx('pl-4'),
     header: clsx('flex-row items-center justify-between pr-4'),
@@ -25,21 +29,10 @@ function MovieListSection({ title }: Props) {
         </Link>
       </View>
       <ScrollView horizontal contentContainerStyle={{ gap: 8, paddingRight: 16 }}>
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
-        <Movie width='md' rating='9.7' image={require('../../assets/images/avengers.jpg')} />
+        {movies.map((movie) => {
+          const { id, vote_average, backdrop_path } = movie
+          return <Movie key={id} rating={vote_average} imageURL={`${movieImageURL}${backdrop_path}`} width='md' />
+        })}
       </ScrollView>
     </View>
   )
