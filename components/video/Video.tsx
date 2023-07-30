@@ -1,16 +1,17 @@
 import { AntDesign } from '@expo/vector-icons'
 import clsx from 'clsx'
 import { styled } from 'nativewind'
-import { Image, ImageSourcePropType, View } from 'react-native'
+import { Image, View } from 'react-native'
+import { TMovieImageURL } from '../../models'
 
 const PlayIcon = styled(AntDesign)
 
 interface Props {
-  thumbnail: ImageSourcePropType
+  thumbnailURL: TMovieImageURL
   withIcon?: boolean
 }
 
-function Video({ thumbnail, withIcon }: Props) {
+function Video({ thumbnailURL, withIcon }: Props) {
   const classes = {
     container: clsx('items-center justify-center'),
     image: clsx('h-24 w-36 rounded-lg'),
@@ -19,7 +20,7 @@ function Video({ thumbnail, withIcon }: Props) {
 
   return (
     <View className={classes.container}>
-      <Image source={thumbnail} className={classes.image} />
+      <Image source={{ uri: thumbnailURL }} className={classes.image} />
       {withIcon !== undefined && <PlayIcon className={classes.icon} name='play' size={28} color='#eee' />}
     </View>
   )
