@@ -1,9 +1,18 @@
 import clsx from 'clsx'
 import { Image, ScrollView, Text } from 'react-native'
-import { AuthActionMessage, AuthWithSocialMedia, Button, DividerWithHeading } from '../../../components'
+import {
+  AuthActionMessage,
+  AuthWithSocialMedia,
+  Button,
+  ButtonSocialMedia,
+  DividerWithHeading
+} from '../../../components'
 import { Routes } from '../../../models'
 
 const imageSource = require('../../../assets/images/login-image.png')
+const imageGoogleIcon = require('../../../assets/images/google.png')
+const imageGithubIcon = require('../../../assets/images/github.png')
+const imageTwitterIcon = require('../../../assets/images/twitter.png')
 
 function LoginScreen() {
   const classes = {
@@ -16,7 +25,11 @@ function LoginScreen() {
     <ScrollView className={classes.container} contentContainerStyle={{ paddingVertical: 56, gap: 28 }}>
       <Image source={imageSource} className={classes.image} />
       <Text className={classes.title}>Let's you in</Text>
-      <AuthWithSocialMedia />
+      <AuthWithSocialMedia position>
+        <ButtonSocialMedia image={imageGoogleIcon} label='Continue with Facebook' />
+        <ButtonSocialMedia image={imageGithubIcon} label='Continue with Google' />
+        <ButtonSocialMedia image={imageTwitterIcon} label='Continue with Twitter' />
+      </AuthWithSocialMedia>
       <DividerWithHeading label='or' />
       <Button>Sign in with password</Button>
       <AuthActionMessage message="Don't have an account?" to='Sign up' href={Routes.register} />
