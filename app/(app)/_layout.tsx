@@ -17,6 +17,7 @@ function AppLayout() {
             options={{ title: 'Download', headerRight: () => <SearchIcon /> }}
           />
           <Stack.Screen name={StackRoutes.profile} options={{ title: 'Profile' }} />
+          <Stack.Screen name={StackRoutes.category} options={{ headerRight: () => <SearchIcon /> }} />
         </Stack>
         <TabBar />
       </SafeAreaProvider>
