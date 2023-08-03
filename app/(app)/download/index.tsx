@@ -1,5 +1,5 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import { Modal, MovieDeleteModal, MovieDownloadCard } from '../../../components'
 import { IMovie } from '../../../models'
@@ -30,10 +30,11 @@ function DownloadScreen() {
 
   return (
     <ScrollView className='px-2' contentContainerStyle={{ gap: 12, paddingVertical: 8 }}>
-      {moviesPopular.length > 0 &&
-        moviesPopular.map((movie) => {
+      <Suspense>
+        {moviesPopular.map((movie) => {
           return <MovieDownloadCard key={movie.id} movie={movie} hasDeleteIcon onPressDelete={handleOnPressDelete} />
         })}
+      </Suspense>
       <Modal ref={MovieDeleteModalRef} minPoint='50%' maxPoint='50%'>
         <MovieDeleteModal movieID={movieID} onPressCancel={handleCloseModal} />
       </Modal>

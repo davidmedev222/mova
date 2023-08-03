@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { ScrollView } from 'react-native'
 import { MovieList, TagButtonGroup } from '../../../components'
 import { IMovie } from '../../../models'
@@ -16,7 +16,9 @@ function MyListScreen() {
   return (
     <ScrollView className='px-2' contentContainerStyle={{ gap: 16, paddingVertical: 8 }}>
       <TagButtonGroup row />
-      <MovieList movies={moviesNowPlaying} />
+      <Suspense>
+        <MovieList movies={moviesNowPlaying} />
+      </Suspense>
     </ScrollView>
   )
 }
