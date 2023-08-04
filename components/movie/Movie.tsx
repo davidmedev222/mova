@@ -1,14 +1,16 @@
 import clsx from 'clsx'
-import { Image, Text, View } from 'react-native'
-import { TMovieImageURL } from '../../models'
+import { Link } from 'expo-router'
+import { ImageBackground, Text, View } from 'react-native'
+import { Routes, TMovieImageURL } from '../../models'
 
 interface Props {
   rating: string | number
   imageURL: TMovieImageURL
   width?: 'md'
+  movieID: string
 }
 
-function Movie({ imageURL, rating, width }: Props) {
+function Movie({ imageURL, rating, width, movieID }: Props) {
   const classes = {
     container: clsx('w-[48.5%]', width === 'md' && 'w-40'),
     image: clsx('h-60 w-full rounded'),
@@ -17,8 +19,10 @@ function Movie({ imageURL, rating, width }: Props) {
 
   return (
     <View className={classes.container}>
-      <Image className={classes.image} source={{ uri: imageURL }} />
-      <Text className={classes.rating}>{rating}</Text>
+      <ImageBackground source={{ uri: imageURL }}>
+        <Link href={{ pathname: Routes.movie, params: { id: movieID } }} className={classes.image} />
+      </ImageBackground>
+      <Text className={classes.rating}>{rating.toString().slice(0, 3)}</Text>
     </View>
   )
 }

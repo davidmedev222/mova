@@ -1,4 +1,4 @@
-import { IMovieDetail } from '../../models'
+import { IMovieCast, IMovieComments, IMovieDetail, IMovieVideo } from '../../models'
 
 const options = {
   method: 'GET',
@@ -8,7 +8,7 @@ const options = {
   }
 }
 
-async function getMovieDetails(id: number): Promise<IMovieDetail> {
+async function getMovieDetails(id: string | number): Promise<IMovieDetail> {
   const url = `https://api.themoviedb.org/3/movie/${id}`
   const response = await fetch(url, options)
 
@@ -20,4 +20,52 @@ async function getMovieDetails(id: number): Promise<IMovieDetail> {
   return movie
 }
 
-export { getMovieDetails }
+async function getMovieSimilar(id: string) {
+  const url = `https://api.themoviedb.org/3/movie/${id}/similar`
+  const response = await fetch(url, options)
+
+  if (!response.ok) {
+    throw new Error('Error trying to get the movie recommendations')
+  }
+
+  const { results } = await response.json()
+  return results
+}
+
+async function getMovieVideos(id: string): Promise<IMovieVideo[]> {
+  const url = `https://api.themoviedb.org/3/movie/${id}/videos`
+  const response = await fetch(url, options)
+
+  if (!response.ok) {
+    throw new Error('Error trying to get the movie videos')
+  }
+
+  const { results } = await response.json()
+  return results
+}
+
+async function getMovieCredits(id: string): Promise<IMovieCast[]> {
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits`
+  const response = await fetch(url, options)
+
+  if (!response.ok) {
+    throw new Error('Error trying to get the movie credits')
+  }
+
+  const { cast } = await response.json()
+  return cast
+}
+
+async function getMovieComments(id: string): Promise<IMovieComments[]> {
+  const url = `https://api.themoviedb.org/3/movie/${id}/reviews`
+  const response = await fetch(url, options)
+
+  if (!response.ok) {
+    throw new Error('Error trying to get the movie comments')
+  }
+
+  const { results } = await response.json()
+  return results
+}
+
+export { getMovieComments, getMovieCredits, getMovieDetails, getMovieSimilar, getMovieVideos }
