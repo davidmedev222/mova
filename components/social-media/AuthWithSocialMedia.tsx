@@ -1,15 +1,14 @@
 import clsx from 'clsx'
-import { ReactNode } from 'react'
 import { View } from 'react-native'
 
 interface Props {
-  position: boolean
-  children: ReactNode
+  position: 'row' | 'column'
+  children: React.ReactNode
 }
 
 function AuthWithSocialMedia({ position, children }: Props) {
   const classes = {
-    container: clsx('space-y-3', !position && 'flex-row justify-center')
+    container: clsx('space-y-3', position === 'row' && 'flex-row justify-center')
   }
 
   return (

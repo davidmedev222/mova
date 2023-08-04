@@ -8,7 +8,7 @@ import {
   DividerWithHeading,
   EmailIcon,
   EyesIcon,
-  FormInput,
+  Input,
   LockIcon
 } from '../../../components'
 import { Routes } from '../../../models'
@@ -23,8 +23,8 @@ function RegisterScreen() {
       <Image source={require('../../../assets/mova.png')} className='h-24 w-24 self-center' />
       <View className='items-center self-center' style={{ gap: 20 }}>
         <Text className='text-center text-3xl font-semibold'>Create Your Account</Text>
-        <FormInput valueInput='Text' placeHolder='Email' leftIcon={<EmailIcon />} />
-        <FormInput valueInput='Text' placeHolder='Password' leftIcon={<LockIcon />} rightIcon={<EyesIcon />} />
+        <Input value='Text' placeholder='Email' leftIcon={<EmailIcon />} />
+        <Input value='Text' placeholder='Password' leftIcon={<LockIcon />} rightIcon={<EyesIcon />} />
       </View>
       <View className='flex-row items-center self-center' style={{ gap: 10 }}>
         <Checkbox className='h-6 w-6 border-spacing-1 rounded-md border-2 border-red-500' />
@@ -32,7 +32,7 @@ function RegisterScreen() {
       </View>
       <Button>Sing Up</Button>
       <DividerWithHeading label='or continue with' />
-      <AuthWithSocialMedia position={false}>
+      <AuthWithSocialMedia position='row'>
         <ButtonSocialMedia image={imageGoogleIcon} />
         <ButtonSocialMedia image={imageGithubIcon} />
         <ButtonSocialMedia image={imageTwitterIcon} />

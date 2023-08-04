@@ -2,13 +2,13 @@ import clsx from 'clsx'
 import { TextInput, View } from 'react-native'
 
 interface Props {
-  valueInput: string
-  placeHolder: string
+  value: string
+  placeholder: string
   leftIcon?: JSX.Element
   rightIcon?: JSX.Element
 }
 
-function FormInput({ valueInput, placeHolder, leftIcon, rightIcon }: Props) {
+function Input({ value, placeholder, leftIcon, rightIcon }: Props) {
   const classes = {
     content: clsx(
       'w-80 flex-row items-center rounded-2xl bg-gray-200 py-3 px-3',
@@ -20,10 +20,10 @@ function FormInput({ valueInput, placeHolder, leftIcon, rightIcon }: Props) {
   return (
     <View className={classes.content} style={{ gap: 10 }}>
       {leftIcon !== undefined && leftIcon}
-      <TextInput className={classes.input} placeholder={placeHolder} />
+      <TextInput className={classes.input} placeholder={placeholder} value={value} />
       {rightIcon !== undefined && rightIcon}
     </View>
   )
 }
 
-export default FormInput
+export default Input

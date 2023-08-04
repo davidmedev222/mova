@@ -3,10 +3,9 @@ import { Image, ImageSourcePropType, Pressable, Text } from 'react-native'
 
 interface Props {
   image: ImageSourcePropType
-  label?: string | undefined
+  label?: string
 }
-
-export default function ButtonSocialMedia({ image, label }: Props) {
+function ButtonSocialMedia({ image, label }: Props) {
   const classes = {
     button: clsx(
       'flex-row items-center justify-center space-x-4 rounded-2xl border border-gray-300 bg-gray-200 py-6',
@@ -23,3 +22,5 @@ export default function ButtonSocialMedia({ image, label }: Props) {
     </Pressable>
   )
 }
+
+export default ButtonSocialMedia

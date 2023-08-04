@@ -25,7 +25,7 @@ function LoginScreen() {
     <ScrollView className={classes.container} contentContainerStyle={{ paddingVertical: 56, gap: 28 }}>
       <Image source={imageSource} className={classes.image} />
       <Text className={classes.title}>Let's you in</Text>
-      <AuthWithSocialMedia position>
+      <AuthWithSocialMedia position='column'>
         <ButtonSocialMedia image={imageGoogleIcon} label='Continue with Facebook' />
         <ButtonSocialMedia image={imageGithubIcon} label='Continue with Google' />
         <ButtonSocialMedia image={imageTwitterIcon} label='Continue with Twitter' />
