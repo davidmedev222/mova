@@ -7,9 +7,11 @@ interface Props {
   color?: 'red' | 'white'
   outline?: boolean
   leftIcon?: JSX.Element
+  size?: 'lg'
+  full?: boolean
 }
 
-function TagButton({ children, isActive, color, outline, leftIcon }: Props) {
+function TagButton({ children, isActive, color, outline, leftIcon, size, full }: Props) {
   const classes = {
     button: clsx(
       'rounded-full border-2 border-red-500 py-1 px-4',
@@ -17,7 +19,9 @@ function TagButton({ children, isActive, color, outline, leftIcon }: Props) {
       color === 'red' && 'border-transparent bg-red-500',
       color === 'white' && 'bg-white',
       color === 'white' && outline === true && 'border-white bg-transparent',
-      leftIcon !== undefined && 'flex-row items-center justify-center'
+      leftIcon !== undefined && 'flex-row items-center justify-center',
+      size === 'lg' && 'py-1.5',
+      full === true && 'grow'
     ),
     label: clsx(
       'text-xs text-red-500',

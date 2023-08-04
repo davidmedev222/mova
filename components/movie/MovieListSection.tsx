@@ -32,8 +32,17 @@ function MovieListSection({ title, movies, href }: Props) {
       </View>
       <ScrollView horizontal contentContainerStyle={{ gap: 8, paddingRight: 16 }}>
         {movies.map((movie) => {
-          const { id, vote_average, backdrop_path } = movie
-          return <Movie key={id} rating={vote_average} imageURL={`${movieImageURL}${backdrop_path}`} width='md' />
+          const { id, vote_average, backdrop_path, poster_path } = movie
+          const imageURL = backdrop_path ?? poster_path
+          return (
+            <Movie
+              key={id}
+              movieID={id.toString()}
+              rating={vote_average}
+              imageURL={`${movieImageURL}${imageURL}`}
+              width='md'
+            />
+          )
         })}
       </ScrollView>
     </View>
