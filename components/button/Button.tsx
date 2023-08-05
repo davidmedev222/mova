@@ -10,7 +10,11 @@ interface Props {
 
 function Button({ children, onPress, size, color }: Props) {
   const classes = {
-    button: clsx('grow rounded-full bg-red-500 py-6', size === 'sm' && 'py-4', color === 'gray' && 'bg-gray-500'),
+    button: clsx(
+      'grow rounded-full bg-red-500 py-6',
+      size === 'sm' && 'py-4',
+      color === 'gray' && 'bg-gray-500 dark:bg-green-300'
+    ),
     text: clsx('text-center text-base text-white')
   }
 

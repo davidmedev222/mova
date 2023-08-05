@@ -8,7 +8,7 @@ function ProfileScreen() {
   }
 
   return (
-    <ScrollView className={classes.container} contentContainerStyle={{ gap: 16, paddingVertical: 56 }}>
+    <ScrollView className={classes.container} contentContainerStyle={{ gap: 20, paddingVertical: 56 }}>
       <UserInfo />
       <PreviewSubscription />
       <OptionLink icon='account-circle'>Edit Profile</OptionLink>
@@ -16,9 +16,6 @@ function ProfileScreen() {
       <OptionLink icon='file-download'>Download</OptionLink>
       <OptionLink icon='security'>Security</OptionLink>
       <OptionLink icon='language'>Language</OptionLink>
-      <OptionLink hasSwitch icon='invert-colors'>
-        Dark Mode
-      </OptionLink>
       <OptionLink icon='info'>Help Center</OptionLink>
       <OptionLink icon='logout'>Log Out</OptionLink>
     </ScrollView>
