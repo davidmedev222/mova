@@ -1,8 +1,11 @@
 import clsx from 'clsx'
 import { ScrollView } from 'react-native'
 import { OptionLink, PreviewSubscription, UserInfo } from '../../../components'
+import { useAuth } from '../../../hooks'
 
 function ProfileScreen() {
+  const { logOut } = useAuth()
+
   const classes = {
     container: clsx('flex-1 px-6')
   }
@@ -17,7 +20,9 @@ function ProfileScreen() {
       <OptionLink icon='security'>Security</OptionLink>
       <OptionLink icon='language'>Language</OptionLink>
       <OptionLink icon='info'>Help Center</OptionLink>
-      <OptionLink icon='logout'>Log Out</OptionLink>
+      <OptionLink onPress={logOut} icon='logout'>
+        Log Out
+      </OptionLink>
     </ScrollView>
   )
 }
