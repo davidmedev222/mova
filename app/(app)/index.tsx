@@ -1,4 +1,3 @@
-import { Link } from 'expo-router'
 import { Suspense, useEffect, useState } from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
 import { MovieListSection, MoviePresentationCard } from '../../components'
@@ -64,10 +63,6 @@ function HomeScreen() {
           href={{ pathname: Routes.category, params: { name: 'Upcoming', id: 'upcoming' } }}
         />
       </Suspense>
-      <Link href='/login'>Login</Link>
-      <Link href='/register'>Register</Link>
-      <Link href='/welcome'>Welcome</Link>
-      <Link href='/onboarding'>onboarding</Link>
     </ScrollView>
   )
 }
