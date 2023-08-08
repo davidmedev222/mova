@@ -10,8 +10,8 @@ interface Props {
 function ButtonLink({ content, url, isAbsolute }: Props) {
   const classes = {
     button: clsx(
-      'justify-items-center rounded-3xl bg-red-500 px-28 py-3 text-center text-lg text-white',
-      isAbsolute === true && 'absolute bottom-5 right-10'
+      'justify-items-center rounded-full bg-red-500 py-6 text-center text-lg text-white',
+      isAbsolute === true && 'absolute bottom-5 right-10 px-28 py-3'
     )
   }
 
