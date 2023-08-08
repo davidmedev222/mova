@@ -1,50 +1,39 @@
-import { useState } from 'react'
-import { View } from 'react-native'
-import PagerView from 'react-native-pager-view'
-import { ButtonLink, CarouselIndicators, Welcome } from '../../../components'
+import clsx from 'clsx'
+import { Image, ScrollView, Text } from 'react-native'
+import {
+  AuthActionMessage,
+  AuthWithSocialMedia,
+  ButtonLink,
+  ButtonSocialMedia,
+  DividerWithHeading
+} from '../../../components'
+import { Routes } from '../../../models'
 
-const primarySource = require('../../../assets/images/welcome_background.webp')
-const secondarySource = require('../../../assets/images/welcome_background_3.webp')
-const thirdSource = require('../../../assets/images/welcome_background_2.webp')
-
-const pageList = [
-  {
-    key: 0,
-    title: 'Welcome to Mova',
-    detail: 'The best movie streaming app of the century to make your days great',
-    url: primarySource
-  },
-  {
-    key: 1,
-    title: 'The best movies',
-    detail: '¡you can watch the best movies when you wish it!',
-    url: secondarySource
-  },
-  {
-    key: 2,
-    title: 'The best series',
-    detail: 'you can watch the best series when you wish it',
-    url: thirdSource
-  }
-]
+const imageSource = require('../../../assets/images/login-image.png')
+const imageGoogleIcon = require('../../../assets/images/google.png')
+const imageGithubIcon = require('../../../assets/images/github.png')
+const imageTwitterIcon = require('../../../assets/images/twitter.png')
 
 function WelcomeScreen() {
-  const [viewPosition, setViewPosition] = useState(0)
+  const classes = {
+    container: clsx('flex-1 px-6'),
+    image: clsx('h-80 w-full'),
+    title: clsx('text-center text-5xl font-semibold')
+  }
 
   return (
-    <View className='relative flex-1'>
-      <PagerView className='flex-1' initialPage={0} onPageSelected={(e) => setViewPosition(e.nativeEvent.position)}>
-        {pageList.map((page) => {
-          return <Welcome key={page.key} title={page.title} detail={page.detail} imageSource={page.url} />
-        })}
-      </PagerView>
-      <View className='absolute right-44 bottom-20 h-10 flex-row items-end justify-center py-2' style={{ gap: 8 }}>
-        {pageList.map((page) => {
-          return <CarouselIndicators key={page.key} passKey={page.key} viewPosition={viewPosition} />
-        })}
-      </View>
-      <ButtonLink content='Get started' url='/login' isAbsolute />
-    </View>
+    <ScrollView className={classes.container} contentContainerStyle={{ paddingVertical: 56, gap: 28 }}>
+      <Image source={imageSource} className={classes.image} />
+      <Text className={classes.title}>Let's you in</Text>
+      <AuthWithSocialMedia position='column'>
+        <ButtonSocialMedia image={imageGoogleIcon} label='Continue with Facebook' />
+        <ButtonSocialMedia image={imageGithubIcon} label='Continue with Google' />
+        <ButtonSocialMedia image={imageTwitterIcon} label='Continue with Twitter' />
+      </AuthWithSocialMedia>
+      <DividerWithHeading label='or' />
+      <ButtonLink url={Routes.login} content='Sign in with password' />
+      <AuthActionMessage message="Don't have an account?" to='Sign up' href={Routes.register} />
+    </ScrollView>
   )
 }
 

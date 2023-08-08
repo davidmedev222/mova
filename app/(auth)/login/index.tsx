@@ -1,39 +1,43 @@
-import clsx from 'clsx'
-import { Image, ScrollView, Text } from 'react-native'
+import Checkbox from 'expo-checkbox'
+import { Image, Text, View } from 'react-native'
 import {
   AuthActionMessage,
   AuthWithSocialMedia,
   Button,
   ButtonSocialMedia,
-  DividerWithHeading
+  EmailIcon,
+  EyesIcon,
+  Input,
+  LockIcon
 } from '../../../components'
 import { Routes } from '../../../models'
 
-const imageSource = require('../../../assets/images/login-image.png')
 const imageGoogleIcon = require('../../../assets/images/google.png')
 const imageGithubIcon = require('../../../assets/images/github.png')
 const imageTwitterIcon = require('../../../assets/images/twitter.png')
 
 function LoginScreen() {
-  const classes = {
-    container: clsx('flex-1 px-6'),
-    image: clsx('h-80 w-full'),
-    title: clsx('text-center text-5xl font-semibold')
-  }
-
   return (
-    <ScrollView className={classes.container} contentContainerStyle={{ paddingVertical: 56, gap: 28 }}>
-      <Image source={imageSource} className={classes.image} />
-      <Text className={classes.title}>Let's you in</Text>
-      <AuthWithSocialMedia position='column'>
-        <ButtonSocialMedia image={imageGoogleIcon} label='Continue with Facebook' />
-        <ButtonSocialMedia image={imageGithubIcon} label='Continue with Google' />
-        <ButtonSocialMedia image={imageTwitterIcon} label='Continue with Twitter' />
+    <View className=' py-5 px-5' style={{ gap: 30 }}>
+      <Image source={require('../../../assets/mova.png')} className='h-24 w-24 self-center' />
+      <View className='items-center self-center' style={{ gap: 20 }}>
+        <Text className='text-center text-3xl font-semibold'>Login to Your Account</Text>
+        <Input value='' placeholder='johndoe@gmail.com' leftIcon={<EmailIcon />} />
+        <Input value='' placeholder='johndoe222' leftIcon={<LockIcon />} rightIcon={<EyesIcon />} />
+      </View>
+      <View className='flex-row items-center self-center' style={{ gap: 10 }}>
+        <Checkbox className='h-6 w-6 border-spacing-1 rounded-md border-2 border-red-500' />
+        <Text>Remember me</Text>
+      </View>
+      <Button>Sign in</Button>
+      <Text className='text-center text-xs text-red-500'>Forgot the password?</Text>
+      <AuthWithSocialMedia position='row'>
+        <ButtonSocialMedia image={imageGoogleIcon} />
+        <ButtonSocialMedia image={imageGithubIcon} />
+        <ButtonSocialMedia image={imageTwitterIcon} />
       </AuthWithSocialMedia>
-      <DividerWithHeading label='or' />
-      <Button>Sign in with password</Button>
-      <AuthActionMessage message="Don't have an account?" to='Sign up' href={Routes.register} />
-    </ScrollView>
+      <AuthActionMessage message='Already have an account?' to='Sign up' href={Routes.register} />
+    </View>
   )
 }
 

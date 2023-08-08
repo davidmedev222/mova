@@ -67,6 +67,7 @@ function HomeScreen() {
       <Link href='/login'>Login</Link>
       <Link href='/register'>Register</Link>
       <Link href='/welcome'>Welcome</Link>
+      <Link href='/onboarding'>onboarding</Link>
     </ScrollView>
   )
 }
