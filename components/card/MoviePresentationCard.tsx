@@ -6,7 +6,7 @@ import HomeHeader from '../header/HomeHeader'
 import PlayIcon from '../icons/PlayIcon'
 import PlusIcon from '../icons/PlusIcon'
 
-const imageSource = require('../../assets/images/avengers.jpg')
+const imageSource = require('../../assets/images/presentationcard.jpg')
 
 function MoviePresentationCard() {
   const classes = {

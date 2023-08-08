@@ -2,9 +2,9 @@ import { MaterialIcons } from '@expo/vector-icons'
 import clsx from 'clsx'
 import { styled } from 'nativewind'
 import { Image, Text, View } from 'react-native'
+import { profileDefaultURL } from '../../constants'
 
 const EditIcon = styled(MaterialIcons)
-const imageSource = require('../../assets/images/davidprofile.png')
 
 function UserInfo() {
   const classes = {
@@ -18,7 +18,7 @@ function UserInfo() {
   return (
     <View className={classes.container}>
       <View>
-        <Image className={classes.image} source={imageSource} />
+        <Image className={classes.image} source={{ uri: profileDefaultURL }} />
         <EditIcon className={classes.editIcon} name='edit' size={24} color='#ef4444' />
       </View>
       <Text className={classes.username}>Andrew Ainsley</Text>

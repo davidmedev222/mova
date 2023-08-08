@@ -1,6 +1,6 @@
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 import { Stack } from 'expo-router'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import { ScrollView } from 'react-native'
 import { ExploreHeader, Modal, MovieList, SortAndFilterModal } from '../../../components'
 import { IMovie } from '../../../models'
@@ -24,7 +24,9 @@ function ExploreScreen() {
     <>
       <Stack.Screen options={{ header: () => <ExploreHeader onPressIcon={handleOpenModal} /> }} />
       <ScrollView className='px-2' contentContainerStyle={{ gap: 16, paddingVertical: 8 }}>
-        <MovieList movies={moviesPopular} />
+        <Suspense>
+          <MovieList movies={moviesPopular} />
+        </Suspense>
         <Modal
           ref={modalRef}
           minPoint='25%'

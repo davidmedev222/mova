@@ -8,6 +8,18 @@ const options = {
   }
 }
 
+async function getMovieList(id: string) {
+  const url = `https://api.themoviedb.org/3/movie/${id}`
+  const response = await fetch(url, options)
+
+  if (!response.ok) {
+    throw new Error('Error trying to get the movies by category')
+  }
+
+  const { results } = await response.json()
+  return results
+}
+
 async function getMovieListPopular(): Promise<IMovie[]> {
   const url = 'https://api.themoviedb.org/3/movie/popular'
   const response = await fetch(url, options)
@@ -56,4 +68,4 @@ async function getMovieListUpcoming(): Promise<IMovie[]> {
   return results
 }
 
-export { getMovieListNowPlaying, getMovieListPopular, getMovieListTopRated, getMovieListUpcoming }
+export { getMovieList, getMovieListNowPlaying, getMovieListPopular, getMovieListTopRated, getMovieListUpcoming }
