@@ -1,5 +1,6 @@
-import { User, onAuthStateChanged } from 'firebase/auth'
+import { User, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import { createContext, useEffect, useState } from 'react'
+import { IUserCredential } from '../models'
 import { auth } from '../services'
 
 export const UserContext = createContext({})
@@ -25,7 +26,11 @@ function UserProvider({ children }: Props) {
     })
   }, [])
 
-  const values = { user }
+  const signUp = async ({ email, password }: IUserCredential) => {
+    return await createUserWithEmailAndPassword(auth, email, password)
+  }
+
+  const values = { user, signUp }
 
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>
 }
