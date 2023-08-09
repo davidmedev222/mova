@@ -4,9 +4,9 @@ Mobile application where you can view the catalogs of popular movies, top rated 
 
 ## **📑 GUIDE**
 
-1. [Usage](#🚀usage)
-2. [Mockups](#🎨mockups)
-3. [Technologies Used](#💬technologies-used)
+1. [Usage](#usage)
+2. [Mockups](#mockups)
+3. [Technologies Used](#technologies-used)
 
 ## **🚀USAGE**
 
