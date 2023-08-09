@@ -10,7 +10,25 @@ Mobile application where you can view the catalogs of popular movies, top rated 
 
 ## **🚀USAGE**
 
-[...](...)
+1. Step one
+
+```
+git clone https://github.com/davidmedev222/mova.git
+```
+
+2. Step two
+
+```
+cd mova && npm install
+```
+
+3. Step three
+
+```
+npx expo start -c
+```
+
+4. Step four, download and scan the **QR** code with the Expo Go application, [Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www) or [App Store](https://apps.apple.com/app/apple-store/id982107779).
 
 ## **🎨MOCKUPS**
 
